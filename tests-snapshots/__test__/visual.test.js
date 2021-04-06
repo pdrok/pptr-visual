@@ -57,4 +57,12 @@ describe('Visual Regression Testing', () => {
 			failureThreshold: 0.01,
 		})
 	})
+
+	test.only('Remove Element Before Snapshot', async function () {
+		await page.goto('http://www.example.com')
+		await page.evaluate(() => {
+			;(document.querySelectorAll('h1') || []).forEach((el) => el.remove())
+		})
+		await page.waitForTimeout(5000)
+	})
 })
