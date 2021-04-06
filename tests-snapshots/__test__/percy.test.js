@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer')
-const { percySnapshot } = require('@percy/puppeteer')
+const percySnapshot  = require('@percy/puppeteer')
 
 describe('Percy Visual Test', () => {
 	let browser
@@ -14,7 +14,7 @@ describe('Percy Visual Test', () => {
 		await browser.close()
 	})
 
-	test('Full Page Percy Snapshot', async () => {
+	test('Full Page Percy Snapshot', async function () {
 		await page.goto('https://www.example.com')
 		await page.waitForTimeout(1000)
 		await percySnapshot(page, 'Example Page')
